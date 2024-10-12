@@ -122,7 +122,7 @@ Parameters:
     Description:
       en: 'In private chat, the message starts with keyword will trigger auto-reply, In group chat, the message starts with @Name <keyword> will trigger auto-reply. The keyword can be empty string, which means in private chat every messages will trigger auto-reply, in group chat only "@ the bot" will trigger auto-reply'
       zh-cn: '在私聊中，消息开头为关键词将触发自动回复，在群聊中，消息开头为@机器人 <关键词> 将触发自动回复。关键词可以为空字符串，即私聊中的每条消息都会触发自动回复，群聊中的只有"@机器人"才会触发自动回复'
-    Default: "Hi bot:"
+    Default: ''
 Resources:
   SecurityGroup:
     Type: ALIYUN::ECS::SecurityGroup
