@@ -1,12 +1,9 @@
 # 服务模板说明文档
 
 ## 服务说明
+ChatGPT-on-WeChat帮你快速部署一个微信里的ChatGPT聊天机器人。
 
-**简单描述服务的功能和用途。**  
-例如：  
-_（服务功能描述，如“WordPress 是一款免费开源的 CMS，适用于创建和管理各种类型的网站。”）_
-
-_（服务快速上手链接或文档，如果有的话）_
+此项目源代码仓库：https://github.com/kx-Huang/ChatGPT-on-WeChat
 
 ## 服务架构
 
@@ -15,8 +12,7 @@ _（服务快速上手链接或文档，如果有的话）_
 <img src="architecture_ecs_single.png" width="600" height="400" align="bottom"/>
 
 ## 计费说明
-通过此服务模板构建服务不产生费用。  
-用户部署构建出的服务时，资源费用主要涉及：
+资源费用主要涉及：
 - 所选ECS实例规格
 - 磁盘容量
 - 公网带宽
@@ -37,14 +33,6 @@ _（服务快速上手链接或文档，如果有的话）_
 | AliyunVPCFullAccess                 | 管理专有网络（VPC）的权限                |
 | AliyunROSFullAccess                 | 管理资源编排服务（ROS）的权限              |
 | AliyunComputeNestUserFullAccess     | 管理计算巢服务（ComputeNest）的用户侧权限    |
-| AliyunComputeNestSupplierFullAccess | 管理计算巢服务（ComputeNest）的服务商侧权限 ｜ |
-
-## 服务实例计费说明
-
-**详细说明服务实例的计费方式。**  
-_（描述费用构成，例如所选 vCPU 和内存规格，系统盘类型和容量等）_
-
-_（列出计费方式，例如按量付费或包年包月）_
 
 ## 服务实例部署流程
 

@@ -3,12 +3,12 @@ Service:
   DeployType: ros
   DeployMetadata:
     SupplierDeployMetadata:
-      FileArtifactRelation:
-        '{{ computenest::file::aliyun-computenest_quickstart-chatgpt-on-wechat-docker-compose }}':
-          ArtifactId: ${Artifact.Artifact_1.ArtifactId}
-          ArtifactVersion: ${Artifact.Artifact_1.ArtifactVersion}
+      ArtifactRelation:
+        'aliyun_3_x64_20G_alibase_20240528.vhd':
+          ArtifactId: ${Artifact.EcsImage.ArtifactId}
+          ArtifactVersion: ${Artifact.EcsImage.ArtifactVersion}
     TemplateConfigs:
-      - Name: 单机版
+      - Name: SingleNode
         Url: 'ros_templates/template.yaml'
         AllowedRegions:
           - cn-qingdao
@@ -41,12 +41,83 @@ Service:
   ServiceType: private
   ServiceInfo:
     Locale: zh-CN
-    ShortDescription: docker compose deploy
+    ShortDescription: 'Deploy GPT-4o ChatGPT on your WeChat within 2 steps! 两步在云端部署你的微信ChatGPT聊天机器人！'
     Image: 'resources/icons/service_logo.png'
 Artifact:
-  Artifact_1:
-    ArtifactType: File
-    ArtifactName: aliyun-computenest_quickstart-chatgpt-on-wechat-docker-compose
+  EcsImage:
+    ArtifactType: EcsImage
+    ArtifactName: chatgpt_on_wechat
     ArtifactProperty:
-      RegionId: cn-hangzhou
-      Url: 'resources/artifact_resources/docker_compose.tar'
+      RegionId: ${ImageBuilder.EcsImage.RegionId}
+      ImageId: ${ImageBuilder.EcsImage.SourceImageId}
+    SupportRegionIds:
+      - cn-qingdao
+      - cn-beijing
+      - cn-zhangjiakou
+      - cn-huhehaote
+      - cn-wulanchabu
+      - cn-hangzhou
+      - cn-shanghai
+      - cn-nanjing
+      - cn-shenzhen
+      - cn-heyuan
+      - cn-guangzhou
+      - cn-fuzhou
+      - cn-wuhan-lr
+      - cn-chengdu
+      - cn-hongkong
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-southeast-1
+      - ap-southeast-3
+      - ap-southeast-6
+      - ap-southeast-5
+      - ap-southeast-7
+      - us-east-1
+      - us-west-1
+      - eu-west-1
+      - eu-central-1
+      - me-east-1
+ImageBuilder:
+  EcsImage:
+    RegionId: ap-southeast-1
+    SourceImageId: aliyun_3_x64_20G_alibase_20240528.vhd
+    InstanceType: ecs.c6.large
+    InternetMaxBandwidthOut: 10
+    CommandType: RunShellScript
+    Timeout: 10800
+    CommandContent: |-
+      #!/bin/bash
+      yum -y update
+      yum check-update --security && yum -y upgrade --security
+      yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+      yum makecache
+      yum install -y git
+      yum install -y docker-ce
+      systemctl enable docker
+      systemctl start docker
+
+      mkdir -p /etc/docker
+      tee /etc/docker/daemon.json <<-'EOF'
+      {
+          "registry-mirrors": [
+              "https://0vmzj3q6.mirror.aliyuncs.com",
+              "https://vlgh0kqj.mirror.aliyuncs.com",
+              "https://docker.m.daocloud.io",
+              "https://mirror.baidubce.com",
+              "https://dockerproxy.com",
+              "https://mirror.iscas.ac.cn",
+              "https://huecker.io",
+              "https://dockerhub.timeweb.cloud",
+              "https://noohub.ru"
+          ]
+      }
+      EOF
+      systemctl daemon-reload
+      systemctl restart docker
+      
+      mkdir -p /opt/application/ChatGPT-on-WeChat
+      git clone https://github.com/kx-Huang/ChatGPT-on-WeChat.git /opt/application/ChatGPT-on-WeChat
+      cd /opt/application/ChatGPT-on-WeChat
+      # build image first, otherwise docker will try to pull image first
+      docker compose build
