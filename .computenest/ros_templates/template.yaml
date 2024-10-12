@@ -113,9 +113,16 @@ Parameters:
   OpenaiOrganizationID:
     Type: String
     Label: OpenAI Organization ID
+    Default: ''
   ChatgptTriggerKeyword:
     Type: String
-    Label: ChatGPT触发关键词
+    Label: 
+      en: ChatGPT Trigger Keyword
+      zh-cn: ChatGPT触发关键词
+    Description:
+      en: 'In private chat, the message starts with keyword will trigger auto-reply, In group chat, the message starts with @Name <keyword> will trigger auto-reply. The keyword can be empty string, which means in private chat every messages will trigger auto-reply, in group chat only "@ the bot" will trigger auto-reply'
+      zh-cn: '在私聊中，消息开头为关键词将触发自动回复，在群聊中，消息开头为@机器人 <关键词> 将触发自动回复。关键词可以为空字符串，即私聊中的每条消息都会触发自动回复，群聊中的只有"@机器人"才会触发自动回复'
+    Default: "Hi bot:"
 Resources:
   SecurityGroup:
     Type: ALIYUN::ECS::SecurityGroup
@@ -205,11 +212,14 @@ Outputs:
       en: Application location
       zh-cn: 应用位置
     Value: /opt/application/ChatGPT-on-WeChat
-  GuideZh:
+  GuideEn:
     Label:
       en: How to use
+    Value: 'Find ECS Instance in resource page, click Remote Connect to login ECS instance, run "sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs", use WeChat scan the QR code to login desktop WeChat, wait a while and you can start chatting with the bot.'
+  GuideZh:
+    Label:
       zh-cn: 如何使用
-    Value: '从服务实例->资源页找到ECS实例，点击远程连接登录ECS实例，运行"sudo docker compose logs -f /opt/application/docker-compose.yml"，使用微信扫描日志中的二维码登录桌面微信，稍等片刻即可开始和机器人聊天。Find ECS Instance in Service Instance->Resource page, click Remote Connect to login ECS instance, run "sudo docker compose logs -f /opt/application/docker-compose.yml", use WeChat scan the QR code to login desktop WeChat, wait a while and you can start chatting with the bot.'
+    Value: '从资源页找到ECS实例，点击远程连接登录ECS实例，运行"sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs"，使用微信扫描日志中的二维码确认登录桌面微信，稍等片刻即可开始和机器人聊天。'
 Metadata:
   ALIYUN::ROS::Interface:
     ParameterGroups:
