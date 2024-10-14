@@ -1,3 +1,4 @@
 site_name: Aliyun 计算巢 x Demo
+docs_dir: .computenest/docs
 theme: 
   name: aliyuncomputenest
