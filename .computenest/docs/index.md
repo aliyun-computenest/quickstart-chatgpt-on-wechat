@@ -4,6 +4,7 @@
 
 ## 概述
 ChatGPT-on-WeChat帮您两步在云端部署你的微信ChatGPT聊天机器人！
+此项目的GitHub地址：https://github.com/kx-Huang/ChatGPT-on-WeChat
 
 
 ## 前提条件
@@ -51,11 +52,13 @@ ChatGPT-on-WeChat帮您两步在云端部署你的微信ChatGPT聊天机器人�
 
 ## 部署流程
 1. 访问计算巢ChatGPT-on-WeChat[部署链接](https://computenest.console.aliyun.com/service/instance/create/cn-hangzhou?type=user&ServiceId=service-a81e49ab7dd24520a365)，按提示填写部署参数
-2. 选择付费类型![](./images/pay_type_config.png)
-2. 填写实例参数![](./images/resource_config.png)
-3. 填写可用区和网络参数并点击“下一步：确认订单”![](./images/zone_config.png)
-4. 点击立即创建，等待服务实例部署完成
-5. 服务实例部署完成后，点击实例ID进入到详情界面![]()
-6. 根据“”中的说明，登录到ECS实例内部，查看应用日志![](./images/QR_code.png)
-7. 扫描应用日志中输出的最新的二维码，确认登录桌面微信
-8. 稍等几秒后即可和微信机器人聊天
+2. 选择付费类型
+   ![](./images/pay_type_config.png)
+3. 填写实例参数
+   ![](./images/resource_config.png)
+4. 填写可用区和网络参数并点击“下一步：确认订单”![](./images/zone_config.png)
+5. 点击立即创建，等待服务实例部署完成
+6. 服务实例部署完成后，点击实例ID进入到详情界面![]()
+7. 根据“”中的说明，登录到ECS实例内部，查看应用日志![](./images/QR_code.png)
+8. 扫描应用日志中输出的最新的二维码，确认登录桌面微信
+9.  稍等几秒后即可和微信机器人聊天
