@@ -1,7 +1,7 @@
 ROSTemplateFormatVersion: '2015-09-01'
 Description:
-  en: DockerCompose service template
-  zh-cn: DockerCompose服务模板
+  en: ChatGPT_on_WeChat service template
+  zh-cn: ChatGPT_on_WeChat服务模板
 Parameters:
   PayType:
     Type: String
@@ -212,14 +212,11 @@ Outputs:
       en: Application location
       zh-cn: 应用位置
     Value: /opt/application/ChatGPT-on-WeChat
-  GuideEn:
+  Guide:
     Label:
       en: How to use
-    Value: 'Find ECS Instance in resource page, click Remote Connect to login ECS instance, run "sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs", use WeChat scan the QR code to login desktop WeChat, wait a while and you can start chatting with the bot.'
-  GuideZh:
-    Label:
       zh-cn: 如何使用
-    Value: '从资源页找到ECS实例，点击远程连接登录ECS实例，运行"sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs"，使用微信扫描日志中的二维码确认登录桌面微信，稍等片刻即可开始和机器人聊天。'
+    Value: '从资源页找到ECS实例，点击远程连接登录ECS实例，运行"sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs"，使用微信扫描日志中的二维码确认登录桌面微信，稍等片刻即可开始和机器人聊天。Find ECS Instance in resource page, click Remote Connect to login ECS instance, run "sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs", use WeChat scan the QR code to login desktop WeChat, wait a while and you can start chatting with the bot.'
 Metadata:
   ALIYUN::ROS::Interface:
     ParameterGroups:
@@ -228,18 +225,21 @@ Metadata:
           - PayPeriodUnit
           - PayPeriod
         Label:
-          default: 付费类型配置
+          en: Pay Type Configuration
+          zh-cn: 付费类型配置
       - Parameters:
           - EcsInstanceType
           - InstancePassword
         Label:
-          default: 资源配置
+          en: Resource Configuration
+          zh-cn: 资源配置
       - Parameters:
           - ZoneId
           - VpcId
           - VSwitchId
         Label:
-          default: 可用区配置
+          en: Zone Configuration
+          zh-cn: 可用区配置
       - Parameters:
           - OpenaiApiKey
           - OpenaiOrganizationID
