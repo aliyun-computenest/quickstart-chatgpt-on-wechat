@@ -216,7 +216,7 @@ Outputs:
     Label:
       en: How to use
       zh-cn: 如何使用
-    Value: '从资源页找到ECS实例，点击远程连接登录ECS实例，运行"sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs"，使用微信扫描日志中的二维码确认登录桌面微信，稍等片刻即可开始和机器人聊天。Find ECS Instance in resource page, click Remote Connect to login ECS instance, run "sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs", use WeChat scan the QR code to login desktop WeChat, wait a while and you can start chatting with the bot.'
+    Value: '从资源页找到ECS实例，点击远程连接登录ECS实例，运行"sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs"，使用微信扫描日志中的二维码确认登录桌面微信，稍等片刻即可开始和机器人聊天。Find ECS Instance in resource page, click Remote Connection to login ECS instance, run "sudo docker compose -f /opt/application/ChatGPT-on-WeChat/docker-compose.yml logs", use WeChat scan the QR code to login desktop WeChat, wait a while and you can start chatting with the bot.'
 Metadata:
   ALIYUN::ROS::Interface:
     ParameterGroups:

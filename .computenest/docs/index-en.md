@@ -1,4 +1,4 @@
-<h1> Rapid deployment of the ChatGPT-on-WeChat computing nest </h1>
+<h1> Rapid deployment of the ChatGPT-on-WeChat on Alibaba Cloud compute nest </h1>
 
 <blockquote>
     <p><strong> Disclaimer </strong>: This service is provided by a third party. We try our best to ensure its security,
@@ -18,8 +18,9 @@
 
 <h2> Overview </h2>
 
-<p>ChatGPT-on-WeChat help you deploy your WeChat ChatGPT chat robot in the cloud in two steps!
-    GitHub address of this project: https://github.com/kx-Huang/ChatGPT-on-WeChat</p>
+<p>ChatGPT-on-WeChat help you deploy your WeChat ChatGPT chat robot in the cloud in two steps!</p>
+<p>
+    GitHub address of this project: <a href='https://github.com/kx-Huang/ChatGPT-on-WeChat'>https://github.com/kx-Huang/ChatGPT-on-WeChat</a></p>
 
 <h2> Prerequisites </h2>
 
@@ -68,7 +69,7 @@
     <li><font style="color:rgb(51, 51, 51);"> Internet bandwidth </font></li>
 </ul>
 
-<p> This service requires a WeChat server that can access the public network from the ECS instance. </p>
+<p> This service requires ECS instance can access WeChat server from public network. </p>
 
 <h2> Deployment Architecture </h2>
 
@@ -157,19 +158,21 @@
 
 <ol>
     <li> visit the compute nest ChatGPT-on-WeChat<a
-            href="https://computenest.console.aliyun.com/service/instance/create/cn-hangzhou?type=user&ServiceId=service-a81e49ab7dd24520a365">
+            href="https://computenest.console.aliyun.com/service/instance/create/default?type=user&ServiceName=ChatGPT-on-WeChat社区版">
         deployment link </a> and fill in the deployment parameters as prompted
     </li>
     <li> Select payment type
-        <img src="./images/pay_type_config.png" alt=""/></li>
+        <img src="./images/pay_type_config_en.png" alt=""/></li>
     <li> enter instance parameters
-        <img src="./images/resource_config.png" alt=""/></li>
-    <li> Fill in the zone and network parameters and click Next: Confirm Order <img src="./images/zone_config.png"
+        <img src="./images/resource_config_en.png" alt=""/></li>
+    <li> Fill in the zone and network parameters <img src="./images/zone_config_en.png"
                                                                                     alt=""/></li>
-    <li> Click Create Now and wait for the service instance deployment to complete</li>
-    <li> After the service instance is deployed, click the instance ID to go to the details page. <img src="" alt=""/>
+    <li> Fill in software configuration parameters and click Next: Confirm Order <img src="./images/software_config_en.png"
+                                                                                    alt=""/></li>
+    <li> Confirm all parameters and estimate price, click Create Now and wait for the service instance deployment to complete</li>
+    <li> After the service instance is deployed, click the instance ID to go to the details page. <img src="./images/how_to_use_en.png" alt=""/>
     </li>
-    <li> Log on to the ECS instance according to the instructions in <img src="./images/QR_code.png" alt=""/></li>
+    <li> Log on to the ECS instance according to the instructions in "Use Now" <img src="./images/QR_code.png" alt=""/></li>
     <li> Scan the latest QR code output in the application log and confirm to log in to WeChat desktop</li>
     <li> wait a few seconds to chat with wechat robot</li>
 </ol>
